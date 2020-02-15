@@ -5,6 +5,7 @@ import 'firebase/firestore'
 
 import { firestorePlugin } from 'vuefire'
 import './assets/main.css'
+import vuetify from './plugins/vuetify';
 
 
 
@@ -18,16 +19,17 @@ var firebaseConfig = {
     appId: "1:144249106976:web:f76a87ce17639337970245",
     measurementId: "G-SN817R9J87"
   };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  Vue.config.productionTip = false
-  
-  Vue.use(firestorePlugin)
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+Vue.config.productionTip = false
 
-  export const db = firebase.firestore()
-  export const auth = firebase.auth()
-  
+Vue.use(firestorePlugin)
+
+export const db = firebase.firestore()
+export const auth = firebase.auth()
+
 
 new Vue({
-  render: h => h(App),
+  vuetify,
+  render: h => h(App)
 }).$mount('#app')
