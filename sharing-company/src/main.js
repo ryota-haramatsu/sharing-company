@@ -1,7 +1,10 @@
 import Vue from 'vue'
-import App from './App.vue'
+import Home from './components/Home.vue'
+// import App from './App.vue'
 import firebase from 'firebase'
 import 'firebase/firestore'
+import '@google-cloud/firestore'
+import router from './router.js'
 
 import { firestorePlugin } from 'vuefire'
 import './assets/main.css'
@@ -25,11 +28,14 @@ Vue.config.productionTip = false
 
 Vue.use(firestorePlugin)
 
+
 export const db = firebase.firestore()
 export const auth = firebase.auth()
+export const storage = firebase.storage();
 
 
 new Vue({
   vuetify,
-  render: h => h(App)
+  router,
+  render: h => h(Home)
 }).$mount('#app')
