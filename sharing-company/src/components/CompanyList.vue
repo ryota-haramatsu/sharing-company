@@ -75,7 +75,6 @@ export default {
           document.getElementById('image').src = ref;
     });
     
-    
     // const name = storage.ref().child('images/${file_name}')
     
     // name.getDownloadURL().then(function(ref) {

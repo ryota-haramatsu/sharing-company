@@ -1,30 +1,22 @@
 <template>
 <div>
   <Header />
-  <div v-for="items in company" v-bind:key="items.key">
     <div>
-      {{items.logo}}
-      {{items.name}}
+      {{company.logo}}
+      {{company.name}}
     </div>
     <div>
-      {{items.address}}
+      {{company.address}}
     </div>
-    <div>
-      {{items.comments.name}}
-      {{items.comments.comment}}
-    </div>
-    <div v-for="skills in items.skills" v-bind:key="skills.id">
+    <div v-for="skills in company.skills" v-bind:key="skills.id">
       {{skills}}
     </div>
     <div>
-      {{items.vision}}
+      {{company.vision}}
     </div>
-    <div v-for="welfare in items.welfare" v-bind:key="welfare.id">
+    <div v-for="welfare in company.welfare" v-bind:key="welfare.id">
       {{welfare}}
     </div>
-    
-  </div>
-
 </div>
 
 </template>
@@ -47,10 +39,10 @@ export default {
   },
   firestore() {
     const companyId = String(this.$route.params.id)
-    const company = db.collection('company').where('id', '==', companyId)
+    // ドキュメントID=クエリが同じものをテンプレートで使えるようにcompanyを定義
+    const company = db.collection('company').doc(companyId)
     return {
-      company: company
-      // company: company,
+      company: company,
     }
   },
   methods: {
