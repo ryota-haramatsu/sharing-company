@@ -1,3 +1,42 @@
+/* 共通 */
 body {
     margin: 0;
+}
+
+hr {
+    opacity: 0.3;
+}
+
+.v-application a {
+    text-decoration: none;
+}
+
+/* signup ang signin */
+.signup,
+.signin {
+    background-color: white;
+    margin: 0 auto;
+    width: 900px;
+    padding: 30px;
+}
+
+.signup h2,
+.signin h2 {
+    padding: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.v-application--wrap {
+    background-color: rgb(245,245,245);
+}
+
+.google_email {
+    padding-right: 20px;
+}
+
+
+.signup .v-btn:not(.v-btn--round).v-size--default,
+.signin .v-btn:not(.v-btn--round).v-size--default {
+    width: 350px;
 }

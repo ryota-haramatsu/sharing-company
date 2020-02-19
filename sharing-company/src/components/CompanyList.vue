@@ -3,60 +3,67 @@
    <v-card
     class="mx-auto"
     max-width="800"
-    style="margin-top:50px;"
+    style="margin-bottom:50px;"
     v-for="item in company"
     v-bind:key="item.key"
   >   
     <v-list-item three-line>
-      <v-list-item-avatar
-      tile
-      size="80"
-      color="grey"
-      ></v-list-item-avatar>
-
       <v-list-item-content>
         <v-list-item-title class="headline mb-1">{{item.name}}</v-list-item-title>
         <v-list-item-subtitle>住所 : {{item.address}}</v-list-item-subtitle>
       </v-list-item-content>
+      <v-list-item-avatar
+      tile
+      size="80"
+      width="200"
+      color="grey"
+      >
+        <v-avator>
+          <img src="" id="image"/>
+        </v-avator>
+
+      </v-list-item-avatar>
     </v-list-item>
       
       <hr>
     <v-list-item>
-      <v-list-item-title class="mb-1 font-italic">Vision</v-list-item-title>
+      <v-list-item-title class="mb-1">Vision</v-list-item-title>
     </v-list-item>
     <v-list-item>
-      <v-list-item-title class="mb-1 font-italic">"{{item.vision}}"</v-list-item-title>
+      <v-list-item-title class="mb-5 font-italic">"{{item.vision}}"</v-list-item-title>
     </v-list-item>
     
     <v-list-item>
-      <v-list-item-avatar
+      <!-- <v-list-item-avatar
           tile
           size="45"
-          color="grey"
-        ></v-list-item-avatar>
+        > -->
+        <!-- <div>
+          <img src="" id="human_image">
+        </div> -->
+        <!-- </v-list-item-avatar> -->
       
-      <ul>
-        <v-list-item class="text--primary" v-for="(comment) in item.comments" v-bind:key="comment.key"> 
-          {{comment}}
+      <!-- <ul>
+        <v-list-item class="text--primary" v-for="comments in item.comments" :key="comments.key"> 
+          {{comments}}
         </v-list-item>
-      </ul>
+      </ul> -->
     </v-list-item>
     
     <v-card-actions>
-      <v-btn
-        color="orange"
-        text  
-      >
-        <router-link :to="{name: 'list-detail', params: {company: item.id}}">
-          MORE
+     
+        <router-link :to="{name: 'list-detail', params: { id: item.id }}">
+           <v-btn
+            color="orange"
+            text  
+            >MORE</v-btn> 
         </router-link>
-      </v-btn>
     </v-card-actions>
   </v-card>
  </div>
 </template>
 <script>
-import { db } from '../main' 
+import { db,storage } from '../main' 
 
 export default {
   name: 'company-list',
@@ -65,14 +72,29 @@ export default {
   data() {
     return {
       company: {}, 
+      url: null
     }
   },
   firestore() {
     const company = db.collection('company')
+
+    //fire storageから画像を取得 どうすればいいだろうか？
+    const name = storage.ref().child('images')
+    name.getDownloadURL().toString(function(ref) {
+          document.getElementById('image').src = ref;
+    });
+    
+    
+    // const name = storage.ref().child('images/${file_name}')
+    
+    // name.getDownloadURL().then(function(ref) {
+    //   document.getElementById('human_image').src = ref
+    // })
     return {
-      company: company,
+      company: company, 
     }
   },
+
   methods: {
 
   }
