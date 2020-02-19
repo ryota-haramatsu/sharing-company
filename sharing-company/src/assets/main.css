@@ -40,3 +40,10 @@ hr {
 .signin .v-btn:not(.v-btn--round).v-size--default {
     width: 350px;
 }
+
+/* company list */
+.register_button {
+    position: fixed;
+    bottom: 12px;
+    right: 30px;
+}

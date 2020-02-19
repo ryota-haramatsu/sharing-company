@@ -34,7 +34,7 @@ import { db } from '../main'
 import Header from '../components/Header'
 
 export default {
-  name: 'company-list',
+  name: 'companyListDetail',
   props: { id: String },
   // props:['id'],
   components: { 

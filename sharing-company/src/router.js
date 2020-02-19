@@ -7,6 +7,7 @@ import Signup from './components/Signup.vue'
 import Signin from './components/Signin.vue'
 import CompanyList from './App'
 import CompanyListDetail from './components/CompanyListDetail'
+import RegisterCompany from './components/RegisterCompany'
 
 Vue.use(Router)
 
@@ -14,10 +15,10 @@ let router =  new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    // {
-    //   path: '*',
-    //   redirect: 'signin'
-    // },
+    {
+      path: '*',
+      redirect: 'signin'
+    },
     {
       path: '/signup',
       name: 'Signup',
@@ -35,11 +36,18 @@ let router =  new Router({
       meta: { requiresAuth: true }
     },
     {
+      path: '/list/register',
+      name: 'company-register',
+      component: RegisterCompany
+    },
+    {
       path: '/list/:id',
       name: 'list-detail',
       component: CompanyListDetail,
       props: route => ({ id: String(route.params.id) })
-    }
+    },
+    
+
   ]
 })
 

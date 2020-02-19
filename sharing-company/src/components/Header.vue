@@ -10,17 +10,10 @@
       </div>
       <v-spacer></v-spacer>
       <v-btn
-        href="/list"
+        href="/"
         text
       >
         <span class="mr-2">Company List</span>
-      </v-btn>
-      <v-btn
-        href=""
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Register</span>
       </v-btn>
       <v-btn
         href=""

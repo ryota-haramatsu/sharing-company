@@ -32,24 +32,7 @@
     <v-list-item>
       <v-list-item-title class="mb-5 font-italic">"{{item.vision}}"</v-list-item-title>
     </v-list-item>
-    
-    <v-list-item>
-      <!-- <v-list-item-avatar
-          tile
-          size="45"
-        > -->
-        <!-- <div>
-          <img src="" id="human_image">
-        </div> -->
-        <!-- </v-list-item-avatar> -->
-      
-      <!-- <ul>
-        <v-list-item class="text--primary" v-for="comments in item.comments" :key="comments.key"> 
-          {{comments}}
-        </v-list-item>
-      </ul> -->
-    </v-list-item>
-    
+  
     <v-card-actions>
      
         <router-link :to="{name: 'list-detail', params: { id: item.id }}">
@@ -60,15 +43,23 @@
         </router-link>
     </v-card-actions>
   </v-card>
+  <div class="my-2 register_button">
+    <v-btn color="primary" fab large dark>
+      <router-link to="/list/register">
+        <v-icon color="white">mdi-pencil</v-icon>
+      </router-link>
+      <router-view></router-view>
+    </v-btn>
+  </div>
  </div>
 </template>
 <script>
 import { db,storage } from '../main' 
 
 export default {
-  name: 'company-list',
+  name: 'companyList',
 
-  props:['id'],
+  // props:['id'],
   data() {
     return {
       company: {}, 
