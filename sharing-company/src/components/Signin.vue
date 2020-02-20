@@ -12,7 +12,7 @@
         </v-col> 
         <hr>
         <v-col class="text-center" cols="12" sm="4">
-            <div class="my-2 signup_google" @click="signIn_google">
+            <div class="my-2 signin_google" @click="signIn_google">
                 <v-btn color="error">
                   <v-icon color="white" class="google_email">
                     mdi-email</v-icon>
@@ -30,6 +30,7 @@
 
 <script>
 import firebase from 'firebase'
+
 
 export default {
   name: 'Signin',

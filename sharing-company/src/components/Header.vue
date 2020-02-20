@@ -3,18 +3,15 @@
       app
       color="primary"
       dark 
+      class="header"
     >
       <div class="d-flex align-center">
-            <router-link to="/" style="color:white;"><h1>Sharing Company</h1></router-link>
+            <router-link to="/" style="color:white;"><h2>Sharing Company</h2></router-link>
             <router-view></router-view>    
       </div>
       <v-spacer></v-spacer>
-      <v-btn
-        href="/"
-        text
-      >
-        <span class="mr-2">Company List</span>
-      </v-btn>
+      <div class="right-bar">
+      <v-avator>{{name}}</v-avator>
       <v-btn
         href=""
         target="_blank"
@@ -22,7 +19,7 @@
       >
         <span class="mr-2" @click="signOut">Logout</span>
       </v-btn>
-      <v-avator>{{name}}</v-avator>
+      </div>
     </v-app-bar>
 </template>
 

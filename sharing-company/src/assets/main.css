@@ -15,7 +15,11 @@ hr {
     text-decoration: none;
 }
 
-/* signup ang signin */
+/* Header */
+header .v-toolbar__content {
+    margin: 0 21%;
+}
+
 .signup,
 .signin,
 .company-register {
@@ -24,6 +28,7 @@ hr {
     width: 900px;
     padding: 30px;
 }
+
 
 .signup h2,
 .signin h2 {
@@ -47,19 +52,54 @@ hr {
 }
 
 /* company list */
+.company-list .mx-auto{
+    max-width: 900px;
+}
+
 .register_button{
     position: fixed;
     bottom: 12px;
-    right: 30px;
+    right: 22%;
 }
 
 .company-list .v-btn--fab.v-size--large {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
 }
 
 .company-list .v-btn--icon.v-size--large .v-icon, .v-btn--fab.v-size--large .v-icon {
     font-size: 35px;
+}
+
+
+/* company list detail */
+.company-list-detail {
+    margin-bottom: 20px;
+}
+
+.company-list-detail .v-card__subtitle, .v-card__text, .v-card__title {
+    padding-top: 5px;
+}
+
+.company-list-detail .v-list-item__title {
+    -ms-flex-item-align: center;
+    align-self: center;
+    font-size: 1rem;
+    padding-left: 15px;
+}
+
+/* .v-appliction v-row .mx-auto {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+} */
+
+.v-application .mx-auto {
+    margin-right: 0!important;
+    margin-left: 0!important;
+}
+
+.company-list-detail .row {
+    justify-content: center;
 }
 
 

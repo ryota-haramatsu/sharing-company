@@ -6,6 +6,7 @@
             <div>
                 <form @submit.prevent="saveCompany">
                 <v-col cols="12" sm="6" md="3">
+                    <h2>会社名</h2>
                     <v-text-field class="input" type="text" v-model="name" required :rules="nameRules"></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="3">
