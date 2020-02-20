@@ -13,7 +13,11 @@
         <hr>
         <v-col class="text-center" cols="12" sm="4">
             <div class="my-2 signup_google" @click="signIn_google">
-                <v-btn color="error"><v-icon color="white" class="google_email">mdi-email</v-icon>Googleでログイン</v-btn>
+                <v-btn color="error">
+                  <v-icon color="white" class="google_email">
+                    mdi-email</v-icon>
+                    Googleでログイン
+                </v-btn>
             </div>
         </v-col> 
         <p>You don't have an account? 

@@ -54,7 +54,7 @@
  </div>
 </template>
 <script>
-import { db,storage } from '../main' 
+import { db } from '../main' 
 
 export default {
   name: 'companyList',
@@ -70,10 +70,10 @@ export default {
     const company = db.collection('company')
 
     //fire storageから画像を取得 どうすればいいだろうか？
-    const name = storage.ref().child('images')
-    name.getDownloadURL().toString(function(ref) {
-          document.getElementById('image').src = ref;
-    });
+    // const name = storage.ref().child('images')
+    // name.getDownloadURL().toString(function(ref) {
+    //       document.getElementById('image').src = ref;
+    // });
     
     // const name = storage.ref().child('images/${file_name}')
     

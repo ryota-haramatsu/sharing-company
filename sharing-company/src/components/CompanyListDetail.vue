@@ -1,22 +1,27 @@
 <template>
 <div>
   <Header />
-    <div>
-      {{company.logo}}
-      {{company.name}}
-    </div>
-    <div>
-      {{company.address}}
-    </div>
-    <div v-for="skills in company.skills" v-bind:key="skills.id">
-      {{skills}}
-    </div>
-    <div>
-      {{company.vision}}
-    </div>
-    <div v-for="welfare in company.welfare" v-bind:key="welfare.id">
-      {{welfare}}
-    </div>
+    <v-card
+      class="mx-auto"
+      max-width="344"
+    >
+      <v-subheader>会社名</v-subheader>
+      <v-card-text>
+        {{company.name}}
+      </v-card-text>
+      <v-card-text>
+        {{company.address}}
+      </v-card-text>
+      <v-card-text v-for="skills in company.skills" v-bind:key="skills.id">
+        {{skills}}
+      </v-card-text>
+      <v-card-text>
+        {{company.vision}}
+      </v-card-text>
+      <v-card-text v-for="welfare in company.welfare" v-bind:key="welfare.id">
+        {{welfare}}
+      </v-card-text>
+    </v-card>
 </div>
 
 </template>
