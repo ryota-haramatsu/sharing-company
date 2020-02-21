@@ -1,8 +1,11 @@
 <template>
- <div class="company-list">    
+ <div class="company-list">   
+   <div class="company-counter">
+    <p>{{company.length}}件</p>
+   </div> 
    <v-card
     class="mx-auto"
-    max-width="800"
+    max-width="785"
     style="margin-bottom:50px;"
     v-for="item in company"
     v-bind:key="item.key"

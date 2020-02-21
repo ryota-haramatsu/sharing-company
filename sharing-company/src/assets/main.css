@@ -21,11 +21,17 @@ header .v-toolbar__content {
 }
 
 .signup,
-.signin,
-.company-register {
+.signin{
     background-color: white;
     margin: 0 auto 100px;
     width: 900px;
+    padding: 30px;
+}
+
+.company-register {
+    background-color: white;
+    margin: 0 auto 100px;
+    width: 785px;
     padding: 30px;
 }
 
@@ -71,6 +77,14 @@ header .v-toolbar__content {
     font-size: 35px;
 }
 
+.company-list .company-counter {
+    max-width:785px; 
+    margin: auto;
+}
+
+.company-list .company-counter p {
+    color: #e5222c;
+}
 
 /* company list detail */
 .company-list-detail {
