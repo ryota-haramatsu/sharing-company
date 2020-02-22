@@ -1,4 +1,5 @@
 <template>
+<virtual-list :size="50" :remain="8" :variable="getVariableHeight">
     <v-card
       class="ms-0"
       width="300"
@@ -25,11 +26,15 @@
       </v-list-item>
       <v-divider :key="comment.id"></v-divider>
       </template>
+      
       </v-card>
+  </virtual-list>
 </template>
 
 <script>
 import {db} from '../main'
+import virtualList from 'vue-virtual-scroll-list'
+
 
 export default {
      name: "ChatBoard",
@@ -40,10 +45,16 @@ export default {
       
       return {
         // firestoreのcommentsコレクションを参照
-        comments: db.collection('comments').orderBy('createdAt')
-        
+        comments: db.collection('comments').orderBy('createdAt', 'asc')
       }
     },
+    components: {'virtual-list': virtualList },
+    
+    methods: {
+      getVariableHeight(itemIndex) {
+        return itemIndex 
+      }
+    }
 }
 
 </script>
