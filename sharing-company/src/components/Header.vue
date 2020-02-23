@@ -10,36 +10,45 @@
             <router-view></router-view>    
       </div>
       <v-spacer></v-spacer>
-      <div class="right-bar">
-      <v-avator>{{name}}</v-avator>
-      <v-btn
-        href=""
-        target="_blank"
-        text
-      >
-        <span class="mr-2" @click="signOut"><i class="fas fa-sign-out-alt"></i></span>
-      </v-btn>
-      </div>
+      <Authentication />
     </v-app-bar>
 </template>
 
 <script>
-import firebase from 'firebase'
+import Authentication from './Authentication'
 
 export default {
   name: 'Header',
-  data () {
-    return {
-      name: firebase.auth().currentUser.email,
+  components: {
+    Authentication
+  },
+  created() {
+    if (window.innerWidth < 920) {
+      this.menuPosition = !this.menuPosition;
     }
   },
+  data() {
+    return {
+      menuActive: false,
+      menuPosition: false
+    };
+  },
   methods: {
-    signOut: function() {
-      firebase.auth().signOut().then(() => {
-        this.$router.push('/signin')
-      })
+    menuToggle() {
+      this.menuActive = !this.menuActive;
     }
   }
-
-}
+};
 </script>
+<style scoped>
+#nav {
+  padding: 30px;
+}
+#nav a {
+  font-weight: bold;
+  color: #555;
+}
+#nav a.router-link-exact-active {
+  color: #3273dc;
+}
+</style>
