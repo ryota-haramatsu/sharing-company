@@ -1,5 +1,5 @@
 <template>
- <div class="company-list">   
+ <div class="company-list" v-if="userStatus">   
    <div class="company-counter">
     <p>{{company.length}}件</p>
    </div> 
@@ -45,9 +45,20 @@
     </v-btn>
   </div>
  </div>
+ <div v-else>
+   <div class="company-list">
+     <v-card 
+      class="mx-auto"
+      max-width="785"
+      style="margin-bottom:50px;">
+     ここにサイトの紹介を書いてログインに誘導。
+     </v-card>
+   </div>
+ </div>
 </template>
 <script>
 import { db } from '../main' 
+
 
 export default {
   name: 'companyList',
@@ -64,5 +75,11 @@ export default {
       company: company, 
     }
   },
+  computed: {
+    userStatus() {
+    // ログインするとtrue
+      return this.$store.getters.isSignedIn;
+    }
+  }
 }
 </script>
