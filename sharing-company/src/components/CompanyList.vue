@@ -38,7 +38,8 @@
   <div class="my-2 register_button">
     <v-btn color="primary" fab large dark>
       <router-link to="/list/register">
-        <v-icon color="white">mdi-pencil</v-icon>
+        <v-icon class="fas fa-plus"></v-icon>
+        
       </router-link>
       <router-view></router-view>
     </v-btn>

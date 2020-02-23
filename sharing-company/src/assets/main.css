@@ -15,6 +15,11 @@ hr {
     text-decoration: none;
 }
 
+/* icon color */
+.v-btn--outlined .v-btn__content .v-icon, .v-btn--round .v-btn__content .v-icon {
+    color: white;
+}
+
 /* Header */
 header .v-toolbar__content {
     margin: 0 21%;
@@ -76,6 +81,7 @@ header .v-toolbar__content {
 .company-list .v-btn--icon.v-size--large .v-icon, .v-btn--fab.v-size--large .v-icon {
     font-size: 35px;
 }
+
 
 .company-list .company-counter {
     max-width:785px; 

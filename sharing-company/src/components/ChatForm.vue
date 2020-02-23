@@ -10,7 +10,7 @@
         right
         @click="showCreateForm"
     >
-      <v-icon>mdi-comment</v-icon>
+      <v-icon class="far fa-comment-dots"></v-icon>
     </v-btn>
     <v-dialog v-model="displayForm" max-width="500px">
       <!--コメント入力フォーム-->
