@@ -2,7 +2,7 @@
 <div>
   <div class="signup">
     <div>
-        <h2>新規登録</h2>
+        <!-- <h2>新規登録</h2>
         <v-text-field type="text" :rules="rules" v-model="email"  placeholder="Email"></v-text-field>
         <v-text-field type="password" :rules="rules" v-model="password"  placeholder="Password"></v-text-field>
         <v-col class="text-center" cols="12" sm="4">
@@ -10,7 +10,7 @@
                 <v-btn>新規登録</v-btn>
             </div>
         </v-col> 
-        <hr>
+        <hr> -->
         <v-col class="text-center" cols="12" sm="4">
             <div class="my-2 signup_google" @click="signUp_google">
                 <v-btn color="error"><v-icon color="white" class="google_email">mdi-email</v-icon>Googleで登録</v-btn>
@@ -36,18 +36,20 @@ export default {
     }
   },
   methods: {
-    signUp_mail: function () {
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
-        .then(user => {
-          alert('Create account: ', user.username)
-          this.$router.push('/')
-        })
-        .catch(error => {
-          alert(error.message)
-        })
-    },
+    // signUp_mail: function () {
+    //   firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(
+    //   firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+    //     .then(user => {
+    //       alert('Create account: ', user.username)
+    //       this.$router.push('/')
+    //     })
+    //     .catch(error => {
+    //       alert(error.message)
+    //     }))
+    // },
     signUp_google: function() {
         const provider = new firebase.auth.GoogleAuthProvider()
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(
         firebase.auth().signInWithPopup(provider)
         .then(obj => {
             alert('Create account: ' + obj.user.displayName)
@@ -55,7 +57,7 @@ export default {
         })
         .catch(error => {
           alert(error.message)
-        })
+        }))
     }
   } 
 }
