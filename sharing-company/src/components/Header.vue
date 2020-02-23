@@ -17,7 +17,7 @@
         target="_blank"
         text
       >
-        <span class="mr-2" @click="signOut">Logout</span>
+        <span class="mr-2" @click="signOut"><i class="fas fa-sign-out-alt"></i></span>
       </v-btn>
       </div>
     </v-app-bar>
