@@ -6,13 +6,13 @@
         <v-text-field type="text" :rules="rules" v-model="email"  placeholder="Email"></v-text-field>
         <v-text-field type="password" :rules="rules" v-model="password"  placeholder="Password"></v-text-field>
         <v-col class="text-center" cols="12" sm="4">
-            <div class="my-2 signIn_mail" @click="signIn_mail">
+            <div class="my-2 signIn_mail" @click="signInmail">
                 <v-btn>ログイン</v-btn>
             </div>
         </v-col> 
         <hr>
         <v-col class="text-center" cols="12" sm="4">
-            <div class="my-2 signin_google" @click="signIn_google">
+            <div class="my-2 signin_google" @click="signIngoogle">
                 <v-btn color="error">
                   <v-icon color="white" class="google_email">
                     mdi-email</v-icon>
@@ -41,7 +41,8 @@ export default {
     }
   },
   methods: {
-    signIn_mail: function() {
+    signInmail: function() {
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(
         firebase.auth().signInWithEmailAndPassword(this.email, this.password)
             .then(user => {
                 alert("success", user.username)
@@ -49,10 +50,11 @@ export default {
             })
             .catch(error => {
             alert(error.message)
-        })
+        }))
     },
-    signIn_google: function() {
-        const provider = new firebase.auth.GoogleAuthProvider()
+    signIngoogle: function() {
+      const provider = new firebase.auth.GoogleAuthProvider()
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(
         firebase.auth().signInWithPopup(provider)
         .then(obj => {
             alert('Create account: ' + obj.user.displayName)
@@ -60,7 +62,7 @@ export default {
         })
         .catch(error => {
           alert(error.message)
-        })
+        }))
     }
   }
 }
