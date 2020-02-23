@@ -10,13 +10,9 @@ import store from './store'
 import { firestorePlugin } from 'vuefire'
 import './assets/main.css'
 import vuetify from './plugins/vuetify';
-// import firebaseConfig from './firebase-config'
 import Buefy from "buefy";
 import "buefy/dist/buefy.min.css";
 
-// 認証状態の永続性 LOCAL
-// firebase.init()
-// firebase.initializeApp(firebaseConfig);
 Firebase.init()
 Vue.config.productionTip = false
 

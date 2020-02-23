@@ -6,8 +6,8 @@
       class="header"
     >
       <div class="d-flex align-center">
-            <router-link to="/" style="color:white;"><h2>Sharing Company</h2></router-link>
-            <router-view></router-view>    
+        <router-link to="/" style="color:white;"><h2>Sharing Company</h2></router-link>
+        <router-view></router-view>    
       </div>
       <v-spacer></v-spacer>
       <Authentication />

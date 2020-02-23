@@ -3,9 +3,9 @@
       <!-- ログイン時にはフォームとログアウトボタンを表示 -->
       <div v-if="userStatus" key="login" class="navbar-item">
         <p class="navbar-item">{{ user.displayName }}</p>
-        <button type="button" class="button is-small is-info is-outlined" @click="doLogout">
+        <v-btn type="button" class="button is-small is-info is-outlined" @click="doLogout">
           Sign out
-        </button>
+        </v-btn>
       </div>
       <!-- 未ログイン時にはログインボタンを表示 -->
       <div v-else key="logout">

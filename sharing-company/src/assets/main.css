@@ -25,6 +25,15 @@ header .v-toolbar__content {
     margin: 0 21%;
 }
 
+.authentication .navbar-item {
+    padding-right: 10px;
+    margin-bottom: 0;
+    color: white;
+}
+
+
+
+
 .signup,
 .signin{
     background-color: white;
