@@ -20,6 +20,11 @@ hr {
     color: white;
 }
 
+/* post button  */
+#post-button {
+    margin-left: 86%;
+}
+
 /* Header */
 header .v-toolbar__content {
     margin: 0 21%;

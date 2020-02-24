@@ -27,6 +27,9 @@
       <v-card-text v-for="welfare in company.welfare" v-bind:key="welfare.id">
         ・{{welfare}}
       </v-card-text>
+      <v-card-text>
+        <a :href="company.company_url" target="_blank"><v-icon class="fas fa-home"></v-icon> {{company.name}} 公式サイト</a>
+      </v-card-text>
     </div>
     </v-card>
     <ChatBoard/>

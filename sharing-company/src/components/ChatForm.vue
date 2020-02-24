@@ -27,6 +27,7 @@
             <v-btn
                 :disabled="!valid"
                 @click="addComment"
+                id="post-button"
             >
               投稿
             </v-btn>
