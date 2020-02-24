@@ -42,10 +42,10 @@ export default {
       comments: [],
     }),
     firestore() {
-      
+        const companyId = String(this.$route.params.id)
       return {
         // firestoreのcommentsコレクションを参照
-        comments: db.collection('comments').orderBy('createdAt', 'asc')
+        comments: db.collection('comments').where('company_id', '==', companyId).orderBy('createdAt', 'asc')
       }
     },
     components: {'virtual-list': virtualList },
@@ -53,7 +53,13 @@ export default {
     methods: {
       getVariableHeight(itemIndex) {
         return itemIndex 
-      }
+      },
+
+      // getCompanyId() {
+      //   const companyId = String(this.$route.params.id)
+      //   const commentsCompanyId = db.collection('comments').where('company_id', '==', companyId)
+      //   return commentsCompanyId
+      // }
     }
 }
 

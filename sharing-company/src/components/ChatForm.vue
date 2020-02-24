@@ -43,6 +43,7 @@ import {db} from '../main'
 export default {
     name: 'CreateForm',
     data: () => ({
+      companyId: "",
       // form入力データ
       inputComment: "",
       // バリデーション
@@ -57,8 +58,10 @@ export default {
       // コメント追加
       addComment() {
         const now = new Date()
+        const companyId = String(this.$route.params.id)
         // コメントをFirestoreへ登録
         db.collection('comments').add({
+          company_id: companyId,
           content: this.inputComment,
           avatar: 'https://picsum.photos/50/?random',
           createdAt: now
