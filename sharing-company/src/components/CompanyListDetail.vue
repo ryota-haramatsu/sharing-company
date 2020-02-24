@@ -7,22 +7,23 @@
       width="500"
     >
     <div class="company-list-detail">
-      <v-card-text>
+      <v-card-text  class="company-name">
         {{company.name}}
       </v-card-text>
-      <v-list-item-title>住所</v-list-item-title>
+      <v-list-item-title><v-icon class="fas fa-flag"></v-icon> ビジョン</v-list-item-title>
       <v-card-text>
-        {{company.address}}
+         {{company.vision}}
       </v-card-text>
-            <v-list-item-title>ビジョン</v-list-item-title>
+      <v-list-item-title><v-icon class="fas fa-map-marker-alt"></v-icon> 住所</v-list-item-title>
       <v-card-text>
-        {{company.vision}}
+         {{company.address}}
       </v-card-text>
-      <v-list-item-title>使用技術</v-list-item-title>
+            
+      <v-list-item-title><v-icon class="fas fa-laptop-code"></v-icon> 使用技術</v-list-item-title>
       <v-card-text v-for="skills in company.skills" v-bind:key="skills.id">
         ・{{skills}}
       </v-card-text>      
-      <v-list-item-title>福利厚生</v-list-item-title>
+      <v-list-item-title><v-icon class="fas fa-award"></v-icon> 福利厚生</v-list-item-title>
       <v-card-text v-for="welfare in company.welfare" v-bind:key="welfare.id">
         ・{{welfare}}
       </v-card-text>

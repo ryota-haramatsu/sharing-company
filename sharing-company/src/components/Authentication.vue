@@ -2,10 +2,9 @@
     <div class="authentication">
       <!-- ログイン時にはフォームとログアウトボタンを表示 -->
       <div v-if="userStatus" key="login" class="navbar-item">
+        <v-avatar><img :src="user.photoURL" alt=""></v-avatar>
         <p class="navbar-item">{{ user.displayName }}</p>
-        <v-btn type="button" class="button is-small is-info is-outlined" @click="doLogout">
-          Sign out
-        </v-btn>
+        <v-icon class="fas fa-sign-out-alt"  @click="doLogout"></v-icon>
       </div>
       <!-- 未ログイン時にはログインボタンを表示 -->
       <div v-else key="logout">

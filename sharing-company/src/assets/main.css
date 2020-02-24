@@ -31,6 +31,10 @@ header .v-toolbar__content {
     color: white;
 }
 
+header .navbar-item img {
+    max-height: inherit;
+}
+
 
 
 
@@ -104,6 +108,11 @@ header .v-toolbar__content {
 /* company list detail */
 .company-list-detail {
     margin-bottom: 20px;
+    padding: 30px;
+}
+
+.company-list-detail .company-name {
+    font-size: 18px;
 }
 
 .company-list-detail .v-card__subtitle, .v-card__text, .v-card__title {
@@ -125,6 +134,10 @@ header .v-toolbar__content {
 
 .company-list-detail .row {
     justify-content: center;
+}
+
+.company-list-detail .material-icons {
+    min-width: 40px;
 }
 
 /* chat-board */ 
