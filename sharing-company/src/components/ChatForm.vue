@@ -39,11 +39,14 @@
 
 <script>
 import {db} from '../main'
+import firebase from 'firebase'
 
 export default {
     name: 'CreateForm',
     data: () => ({
       companyId: "",
+      userName: "",
+      avatar: "",
       // form入力データ
       inputComment: "",
       // バリデーション
@@ -59,11 +62,14 @@ export default {
       addComment() {
         const now = new Date()
         const companyId = String(this.$route.params.id)
+        const userName = firebase.auth().currentUser.displayName
+        const avatar = firebase.auth().currentUser.photoURL
         // コメントをFirestoreへ登録
         db.collection('comments').add({
           company_id: companyId,
+          user_name: userName,
+          avatar: avatar,
           content: this.inputComment,
-          avatar: 'https://picsum.photos/50/?random',
           createdAt: now
         })
         // ダイアログを閉じる

@@ -117,10 +117,6 @@ header .v-toolbar__content {
     padding-left: 15px;
 }
 
-/* .v-appliction v-row .mx-auto {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
-} */
 
 .v-application .mx-auto {
     margin-right: 0!important;
@@ -131,6 +127,18 @@ header .v-toolbar__content {
     justify-content: center;
 }
 
+/* chat-board */ 
+#chat-board .comment-content {
+    font-size: 14px;
+}
+
+#chat-board .user_name {
+    padding-left: 16px;
+}
+
+#chat-board .theme--light.v-divider {
+    margin: 0;
+}
 
 /* company register */
 .company-register .col-md-3 {
