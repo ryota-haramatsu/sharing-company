@@ -39,7 +39,6 @@
     <v-btn color="primary" fab large dark>
       <router-link to="/list/register">
         <v-icon class="fas fa-plus"></v-icon>
-        
       </router-link>
       <router-view></router-view>
     </v-btn>

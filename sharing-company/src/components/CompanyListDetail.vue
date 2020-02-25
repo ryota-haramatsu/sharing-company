@@ -1,6 +1,9 @@
 <template>
 <div>
   <Header />
+  <v-row>
+    <!-- <router-link to="/">前の画面に戻る</router-link> -->
+  </v-row>
   <v-row class="justify-center mb-3">
     <v-card
       class="ms-0"
