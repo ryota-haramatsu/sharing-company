@@ -6,16 +6,16 @@
             <div>
                 <form @submit.prevent="saveCompany">
                 <v-col cols="12" sm="6" md="3">
-                    <h2>会社名</h2>
-                    <v-text-field class="input" type="text" v-model="name" required :rules="nameRules"></v-text-field>
+                    <h2>会社名 <span class="required">必須</span></h2>
+                    <v-text-field type="text" v-model="name" required :rules="nameRules"></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="3">
-                    <h2>住所</h2>
-                    <v-text-field class="input" type="text" v-model="address" required :rules="addressRules"></v-text-field>
+                    <h2>住所 <span class="required">必須</span></h2>
+                    <v-text-field type="text" v-model="address" required :rules="addressRules"></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="3">
-                    <h2>Vision</h2>
-                    <v-text-field class="input" type="text"  v-model="vision" required :rules="visionRules"></v-text-field>
+                    <h2>Vision <span class="required">必須</span></h2>
+                    <v-text-field type="text"  v-model="vision" required :rules="visionRules"></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6" md="3">
                     <h2>会社規模</h2>
@@ -45,7 +45,7 @@
                 </v-col>
                 <v-col class="register-center">
                     <div>
-                        <v-btn type="submit" class="button is-link register" large>
+                        <v-btn type="submit" class="register" large>
                             登録
                         </v-btn>
                     </div>

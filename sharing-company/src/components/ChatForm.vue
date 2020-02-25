@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="chat-form-button">
     <!--フォームの表示ボタン-->
     <v-btn
         color="blue"
@@ -10,7 +10,7 @@
         right
         @click="showCreateForm"
     >
-      <v-icon class="far fa-comment-dots"></v-icon>
+      <v-icon class="far fa-comment-dots chat-form-icon"></v-icon>
     </v-btn>
     <v-dialog v-model="displayForm" max-width="500px">
       <!--コメント入力フォーム-->

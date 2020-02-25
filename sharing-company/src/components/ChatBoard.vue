@@ -1,7 +1,7 @@
 <template>
 <virtual-list :size="50" :remain="8" :variable="getVariableHeight" id="chat-board">
     <v-card
-      class="ms-0"
+      class="ms-0 chat-card"
       width="300"
     >
     <template v-for="(comment, index) in comments">
@@ -54,12 +54,6 @@ export default {
       getVariableHeight(itemIndex) {
         return itemIndex 
       },
-
-      // getCompanyId() {
-      //   const companyId = String(this.$route.params.id)
-      //   const commentsCompanyId = db.collection('comments').where('company_id', '==', companyId)
-      //   return commentsCompanyId
-      // }
     }
 }
 
