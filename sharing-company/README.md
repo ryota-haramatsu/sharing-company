@@ -22,3 +22,10 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+vuetify 
+https://vuetifyjs.com/ja/
+
+vue-virtual-scroll-list
+https://github.com/tangbc/vue-virtual-scroll-list
