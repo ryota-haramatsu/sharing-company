@@ -13,11 +13,11 @@
     <v-list-item three-line>
       <v-list-item-content>
         <v-list-item-title class="headline mb-1">{{item.name}}</v-list-item-title>
-        <v-list-item-subtitle>住所 : {{item.address}}</v-list-item-subtitle>
+        <v-list-item-subtitle><v-icon class="fas fa-map-marker-alt"></v-icon>  {{item.address}}</v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
       
-      <hr>
+      <!-- <hr> -->
     <v-list-item>
       <v-list-item-title class="mb-1">Vision</v-list-item-title>
     </v-list-item>
