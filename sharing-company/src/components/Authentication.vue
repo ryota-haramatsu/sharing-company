@@ -35,8 +35,8 @@ export default {
   },
   methods: {
     // ログイン処理
-    doLogin() {
-      Firebase.login();
+    doLogin: function() {
+      Firebase.login()
     },
     // ログアウト処理
     doLogout() {

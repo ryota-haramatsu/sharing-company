@@ -8,6 +8,7 @@ import firebase from 'firebase'
 import CompanyList from './App'
 import CompanyListDetail from './components/CompanyListDetail'
 import RegisterCompany from './components/RegisterCompany'
+import CompanyUpdate from './components/CompanyUpdate'
 
 Vue.use(Router)
 
@@ -44,6 +45,12 @@ let router =  new Router({
       path: '/list/:id',
       name: 'list-detail',
       component: CompanyListDetail,
+      props: route => ({ id: String(route.params.id) })
+    },
+    {
+      path: '/update/:id',
+      name: 'update',
+      component: CompanyUpdate,
       props: route => ({ id: String(route.params.id) })
     },
     

@@ -33,6 +33,12 @@
       <v-card-text>
         <a :href="company.company_url" target="_blank"><v-icon class="fas fa-home"></v-icon> {{company.name}} 公式サイト</a>
       </v-card-text>
+      <v-card-text>
+        <v-icon color="red" @click="updateCompany($route.params.id)">編集する</v-icon>
+      </v-card-text>
+      <v-card-text>
+        <v-icon color="red" @click="deleteCompany($route.params.id)">削除する</v-icon>
+      </v-card-text>
     </div>
     </v-card>
     <ChatBoard/>
@@ -71,7 +77,24 @@ export default {
     }
   },
   methods: {
-      //
+      deleteCompany(id) {
+        if (!confirm('会社情報を削除してよろしいですか？')) {
+          return
+        }
+        const _this = this
+        db.collection('company').doc(id).delete()
+        .then(() => {
+          // リスト一覧ページにリダイレクト
+          _this.$router.push({path: '/'})
+        })
+        .catch(error => {
+          alert(error.message)
+        })
+      },
+      updateCompany(id) {
+        const _this = this
+        _this.$router.push({path: '/update/'+ id})
+      }
   }
 }
 </script>
