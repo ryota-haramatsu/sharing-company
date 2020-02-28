@@ -22,5 +22,5 @@ export default {
       store.commit('onAuthStateChanged', user);
       store.commit('onUserStatusChanged', user.uid ? true : false);
     });
-  }
+  },
 };
