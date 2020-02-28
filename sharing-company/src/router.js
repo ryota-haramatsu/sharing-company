@@ -16,20 +16,6 @@ let router =  new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    // {
-    //   path: '*',
-    //   redirect: 'signin'
-    // },
-    // {
-    //   path: '/signup',
-    //   name: 'Signup',
-    //   component: Signup
-    // },
-    // {
-    //   path: '/signin',
-    //   name: 'Signin',
-    //   component: Signin
-    // },
     {
       path: '/',
       name: 'list',
@@ -53,8 +39,6 @@ let router =  new Router({
       component: CompanyUpdate,
       props: route => ({ id: String(route.params.id) })
     },
-    
-
   ]
 })
 

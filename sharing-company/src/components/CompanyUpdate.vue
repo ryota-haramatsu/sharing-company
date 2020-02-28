@@ -43,6 +43,10 @@
                         multiple
                     ></v-combobox>
                 </v-col>
+                <v-col cols="12" sm="6" md="3">
+                    <h2>サイトURL <span class="required">必須</span></h2>
+                    <v-text-field type="text"  v-model="site_url" required :rules="siteUrlRules"></v-text-field>
+                </v-col>
                 <v-col class="register-center">
                     <div>
                         <v-btn type="submit" class="register" large>
@@ -63,7 +67,7 @@ import {db} from '../main'
 
 export default {
     
-  name: 'company-register',
+  name: 'company-update',
   components: { 
     Header,
   },
@@ -92,41 +96,34 @@ export default {
         welfare: [],
         welfares: [],
         timestamp: null,
-        created_at: null
+        site_url: '',
+        siteUrlRules: [
+            v => !!v || 'サイトURLを入力してください。',
+        ],
+        created_at: null,
+        updated_at: null,
   }),    
   methods: {
-    updateCompany: function() {
+    updateCompany: function() {        
         const _this = this
-        if (this.name && this.address && this.scale && this.vision &&
-        this.skills && this.welfare && this.created_at) {
-            const updated_at = new Date().getTime()
-            db.ref('company' + _this.$route.params.id).set({
-                name: this.name,
-                address: this.address,
-                scale: this.scale,
-                vision: this.vision,
-                skills: this.skills,
-                welfare: this.welfare,
-                created_at: this.created_at,
-                updated_at: updated_at
-            }).then(function (docRef) {
-                console.log('Document written with ID: ', docRef)
-                alert('会社情報を更新しました')
-                _this.$router.push({path: '/'})
-            }).catch(function (error) {
-                console.error('Error adding document: ', error);
-            });
-        }
-        this.errors = []
-        if (!this.name) {
-            this.errors.push('Name required!')
-        }
-        if (!this.address) {
-            this.errors.push('Address required!')
-        }
-        if (!this.vision) {
-            this.errors.push('Vision required!')
-        }
+        const created_at = new Date().getTime()
+        const companyId = String(this.$route.params.id) 
+        db.collection('company').doc(companyId).update({
+            name: this.name,
+            address: this.address,
+            scale: this.scale,
+            vision: this.vision,
+            skills: this.skills,
+            welfare: this.welfare,
+            site_url: this.site_url,
+            created_at: created_at,
+        }).then(function (docRef) {
+            console.log('Document written with ID: ', docRef)
+            alert('会社情報を更新しました')
+            _this.$router.push({path: '/'})
+        }).catch(function (error) {
+            console.error('Error adding document: ', error);
+        });
     },
   }
 }

@@ -43,6 +43,10 @@
                         multiple
                     ></v-combobox>
                 </v-col>
+                <v-col cols="12" sm="6" md="3">
+                    <h2>サイトURL <span class="required">必須</span></h2>
+                    <v-text-field type="text"  v-model="site_url" required :rules="siteUrlRules"></v-text-field>
+                </v-col>
                 <v-col class="register-center">
                     <div>
                         <v-btn type="submit" class="register" large>
@@ -91,6 +95,10 @@ export default {
         skills: null,
         welfare: [],
         welfares: [],
+        site_url: '',
+        siteUrlRules: [
+            v => !!v || 'サイトURLを入力してください。',
+        ],
         timestamp: null
   }),
   methods: {
@@ -106,6 +114,7 @@ export default {
                 vision: this.vision,
                 skills: this.skills,
                 welfare: this.welfare,
+                site_url: this.site_url,
                 created_at: created_at,
             }).then(function (docRef) {
                 console.log('Document written with ID: ', docRef)
@@ -114,16 +123,6 @@ export default {
             }).catch(function (error) {
                 console.error('Error adding document: ', error);
             });
-        }
-        this.errors = []
-        if (!this.name) {
-            this.errors.push('Name required!')
-        }
-        if (!this.address) {
-            this.errors.push('Address required!')
-        }
-        if (!this.vision) {
-            this.errors.push('Vision required!')
         }
     },
   }
