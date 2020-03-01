@@ -10,7 +10,11 @@
       width="500"
     >
     <div class="company-list-detail">
-      <v-card-text  class="company-name">
+      <v-card-text class="icon">
+        <v-icon color="gray" @click="updateCompany($route.params.id)" class="fas fa-edit"></v-icon>
+        <v-icon color="gray" @click="deleteCompany($route.params.id)" class="fas fa-trash-alt"></v-icon>
+      </v-card-text>
+      <v-card-text  class="company-name" name="company.name">
         {{company.name}}
       </v-card-text>
       <v-list-item-title><v-icon class="fas fa-flag"></v-icon> ビジョン</v-list-item-title>
@@ -33,12 +37,6 @@
       <v-card-text>
         <a :href="company.site_url" target="_blank"><v-icon class="fas fa-home"></v-icon> {{company.name}} 公式サイト</a>
       </v-card-text>
-      <v-card-text>
-        <v-icon color="red" @click="updateCompany($route.params.id)">編集する</v-icon>
-      </v-card-text>
-      <v-card-text>
-        <v-icon color="red" @click="deleteCompany($route.params.id)">削除する</v-icon>
-      </v-card-text>
     </div>
     </v-card>
     <ChatBoard/>
@@ -50,6 +48,7 @@
 
 <script>
 import { db } from '../main' 
+// import firebase from 'firebase'
 import Header from './Header'
 import ChatBoard from './ChatBoard'
 import ChatForm from './ChatForm'
@@ -72,24 +71,31 @@ export default {
     const companyId = String(this.$route.params.id)
     // ドキュメントID=クエリが同じものをテンプレートで使えるようにcompanyを定義
     const company = db.collection('company').doc(companyId)
+    // const user_name = firebase.auth().currentUser.uid
+    // const saved_user = db.collection('company').doc(companyId).where('user_name', '=', user_name)
+    // console.log(company);
+    
     return {
-      company: company,
+      company: company,  
+      // user_name: user_name,
+      // saved_user: saved_user
     }
   },
   methods: {
       deleteCompany(id) {
-        if (!confirm('会社情報を削除してよろしいですか？')) {
-          return
-        }
-        const _this = this
-        db.collection('company').doc(id).delete()
-        .then(() => {
-          // リスト一覧ページにリダイレクト
-          _this.$router.push({path: '/'})
-        })
-        .catch(error => {
-          alert(error.message)
-        })
+          if (!confirm('会社情報を削除してよろしいですか？')) {
+            return
+          }
+          const _this = this
+          db.collection('company').doc(id).delete()
+          .then(() => {
+            // リスト一覧ページにリダイレクト
+            _this.$router.push({path: '/'})
+          })
+          .catch(error => {
+            alert(error.message)
+          })
+        // }
       },
       updateCompany(id) {
         const _this = this

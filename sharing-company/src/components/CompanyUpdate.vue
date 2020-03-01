@@ -71,9 +71,11 @@ export default {
   components: { 
     Header,
   },
+//   props: ['name'],
   data: () => ({
+
         id: null,
-        name: null,
+        name: '',
         nameRules: [
             v => !!v || '会社名を入力してください。',
             v => (v && v.length <= 30) || 'Name must be less than 30 characters'
