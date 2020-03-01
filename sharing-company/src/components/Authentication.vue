@@ -2,8 +2,13 @@
     <div class="authentication">
       <!-- ログイン時にはフォームとログアウトボタンを表示 -->
       <div v-if="userStatus" key="login" class="navbar-item">
-        <v-avatar><img :src="user.photoURL" alt=""></v-avatar>
+        <router-link :to="{name: 'user-page', params: {id: user.uid}}">
+        <v-avatar>
+          <img :src="user.photoURL" alt="">
+        </v-avatar>
         <p class="navbar-item">{{ user.displayName }}</p>
+        </router-link>
+        <!-- <router-view></router-view> -->
         <v-icon class="fas fa-sign-out-alt"  @click="doLogout"></v-icon>
       </div>
       <!-- 未ログイン時にはログインボタンを表示 -->
@@ -19,6 +24,7 @@
 </template>
 <script>
 import Firebase from '../firebase';
+
 export default {
   name: 'Authentication',
   created: function() {
@@ -40,7 +46,7 @@ export default {
     },
     // ログアウト処理
     doLogout() {
-      Firebase.logout();
+      Firebase.logout()  
     }
   }
 };

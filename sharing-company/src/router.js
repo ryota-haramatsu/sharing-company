@@ -9,6 +9,7 @@ import CompanyList from './App'
 import CompanyListDetail from './components/CompanyListDetail'
 import RegisterCompany from './components/RegisterCompany'
 import CompanyUpdate from './components/CompanyUpdate'
+import UserPage from './components/UserPage/UserPage.vue'
 
 Vue.use(Router)
 
@@ -28,6 +29,12 @@ let router =  new Router({
       component: RegisterCompany
     },
     {
+      path: '/user/:id',
+      name: 'user-page',
+      component: UserPage,
+      // props: route => ({ id: String(route.params.id) })
+    },
+    {
       path: '/list/:id',
       name: 'list-detail',
       component: CompanyListDetail,
@@ -39,6 +46,7 @@ let router =  new Router({
       component: CompanyUpdate,
       props: route => ({ id: String(route.params.id) })
     },
+
   ]
 })
 

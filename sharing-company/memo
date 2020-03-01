@@ -1,0 +1,10 @@
+ユーザー管理画面
+firebaseDBとの紐付けが必要
+- company docにuser_idを付与
+    - 会社登録時にuserのidを保存
+- 管理画面でfirebase内のuser_idとauthuserのidが同じであれば会社情報の取得
+- リスト一覧と同じ構成 編集ページにリンク
+
+いいねボタン
+- 自分のuser_idがない会社をいいねしたときにいいねボタンが点灯
+- 

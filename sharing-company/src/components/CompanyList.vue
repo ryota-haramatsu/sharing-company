@@ -16,8 +16,6 @@
         <v-list-item-subtitle><v-icon class="fas fa-map-marker-alt"></v-icon>  {{item.address}}</v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
-      
-      <!-- <hr> -->
     <v-list-item>
       <v-list-item-title class="mb-1">Vision</v-list-item-title>
     </v-list-item>
@@ -26,7 +24,6 @@
     </v-list-item>
   
     <v-card-actions>
-     
         <router-link :to="{name: 'list-detail', params: { id: item.id }}">
            <v-btn
             color="orange"
@@ -34,6 +31,12 @@
             >MORE</v-btn> 
         </router-link>
     </v-card-actions>
+    <v-list-item>
+      <button v-on:click="addOne">
+        <v-icon class="far fa-heart"></v-icon>
+      </button>
+      {{count}}
+    </v-list-item>
   </v-card>
   <div class="my-2 register_button">
     <v-btn color="primary" fab large dark>
@@ -66,6 +69,7 @@ export default {
   data() {
     return {
       company: {}, 
+      count: 0
     }
   },
   firestore() {
@@ -74,11 +78,16 @@ export default {
       company: company, 
     }
   },
+  methods: {
+    addOne: function () {
+        this.count = this.count + 1;
+    },
+  },
   computed: {
     userStatus() {
     // ログインするとtrue
       return this.$store.getters.isSignedIn;
-    }
+    },
   }
 }
 </script>
