@@ -36,7 +36,7 @@ header .authentication {
 }
 
 header .authentication .navbar-item {
-    display: flex;
+    display: inline;
 }
 
 .authentication .navbar-item {

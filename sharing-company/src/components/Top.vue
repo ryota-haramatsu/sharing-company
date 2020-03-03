@@ -4,7 +4,7 @@
       class="mx-auto"
       max-width="785"
       style="margin-bottom:50px;">
-     ここにサイトの紹介を書いてログインに誘導。
+     Googleログインをして気になる会社を登録してみよう。
      </v-card>
    </div>
 </template>
