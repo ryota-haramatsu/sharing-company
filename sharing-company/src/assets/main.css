@@ -100,7 +100,9 @@ header .navbar-item img {
     right: 22%;
 }
 
-.company-list .v-btn--fab.v-size--large {
+.company-list .v-btn--fab.v-size--large,
+#my-company-list .v-btn--fab.v-size--large,
+#my-favorite-company-list .v-btn--fab.v-size--large {
     height: 80px;
     width: 80px;
 }
@@ -221,4 +223,9 @@ header .navbar-item img {
 #my-company-list h1,
 #my-favorite-company-list {
     margin: 0 22%;
+}
+
+/* footer */
+footer p {
+    text-align: center;
 }

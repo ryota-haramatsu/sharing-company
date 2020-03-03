@@ -1,10 +1,7 @@
 <template>
 <div>
   <Header />
-  <v-row>
-    <!-- <router-link to="/">前の画面に戻る</router-link> -->
-  </v-row>
-  <v-row class="justify-center mb-3">
+  <v-row class="justify-center mb-3" v-if="userStatus">
     <v-card
       class="ms-0"
       width="500"
@@ -42,6 +39,9 @@
     <ChatBoard/>
     <ChatForm />
   </v-row>
+  <div v-else>
+   <Top />
+  </div>
 </div>
 
 </template>
@@ -101,6 +101,12 @@ export default {
         const _this = this
         _this.$router.push({path: '/update/'+ id})
       }
+  },
+  computed: {
+    userStatus() {
+    // ログインするとtrue
+      return this.$store.getters.isSignedIn;
+    }
   }
 }
 </script>

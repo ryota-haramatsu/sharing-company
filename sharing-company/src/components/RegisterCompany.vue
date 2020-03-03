@@ -107,8 +107,7 @@ export default {
         if (this.name && this.address && this.scale && this.vision &&
         this.skills && this.welfare) {
             const created_at = new Date().getTime()
-            const user_name = firebase.auth().currentUser.uid
-            
+            const user_id = firebase.auth().currentUser.uid
             db.collection('company').add({
                 name: this.name,
                 address: this.address,
@@ -118,7 +117,7 @@ export default {
                 welfare: this.welfare,
                 site_url: this.site_url,
                 created_at: created_at,
-                user_name: user_name,
+                user_id: user_id,
             }).then(function (docRef) {
                 console.log('Document written with ID: ', docRef)
                 alert('会社情報を登録しました')

@@ -2,7 +2,7 @@
 <div>
     <div id="my-company-list">
       <div>
-        <h1>登録会社リスト</h1>
+        <h1>登録会社リスト <span class="company-counter">({{company.length}}件)</span></h1>
       </div>
         <v-card
     class="mx-auto"
@@ -10,7 +10,7 @@
     style="margin-bottom:50px;"
     v-for="item in company"
     v-bind:key="item.key"
-  >   
+    >   
     <v-list-item three-line>
       <v-list-item-content>
         <v-list-item-title class="headline mb-1">{{item.name}}</v-list-item-title>
@@ -43,7 +43,7 @@
     </v-btn>
   </div>
 </div>
-<div id="my-favorite-company-list">
+<!-- <div id="my-favorite-company-list">
       <div>
         <h1>お気に入り</h1>
       </div>
@@ -83,7 +83,7 @@
       <router-view></router-view>
     </v-btn>
   </div>
-</div>
+</div> -->
 </div>
 </template>
 

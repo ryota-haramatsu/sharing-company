@@ -14,7 +14,10 @@ export default {
     firebase.auth().signInWithRedirect(provider)
   },
   logout() {
-    firebase.auth().signOut()
+    firebase.auth().signOut().then(() => {
+      alert('ログアウトしました')
+    })
+
   },
   onAuth() {
     firebase.auth().onAuthStateChanged(user => {

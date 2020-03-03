@@ -22,7 +22,6 @@
     <v-list-item>
       <v-list-item-title class="mb-5 font-italic">"{{item.vision}}"</v-list-item-title>
     </v-list-item>
-  
     <v-card-actions>
         <router-link :to="{name: 'list-detail', params: { id: item.id }}">
            <v-btn
@@ -31,12 +30,20 @@
             >MORE</v-btn> 
         </router-link>
     </v-card-actions>
-    <v-list-item>
-      <button v-on:click="addOne">
-        <v-icon class="far fa-heart"></v-icon>
-      </button>
-      {{count}}
-    </v-list-item>
+    <!-- <v-list-item>
+      <button 
+            v-if="!likedFlg"
+            @click="addLikeUsr()"
+            class="btn like-btn">
+              <v-icon class="far fa-heart"></v-icon> 
+          </button>
+          <button 
+            v-if="likedFlg"
+            @click="delLikeUsr()"
+            class="btn like-btn">
+              <v-icon class="far fa-heart"></v-icon> 
+          </button>
+    </v-list-item> -->
   </v-card>
   <div class="my-2 register_button">
     <v-btn color="primary" fab large dark>
@@ -48,28 +55,26 @@
   </div>
  </div>
  <div v-else>
-   <div class="company-list">
-     <v-card 
-      class="mx-auto"
-      max-width="785"
-      style="margin-bottom:50px;">
-     ここにサイトの紹介を書いてログインに誘導。
-     </v-card>
-   </div>
+   <Top />
  </div>
 </template>
 <script>
-import { db } from '../main' 
-
+import { db } from '../main'
+import Top from './Top'
+// import firebase from 'firebase'
 
 export default {
   name: 'companyList',
-
+  components: {
+    Top
+  },
   // props:['id'],
   data() {
     return {
       company: {}, 
-      count: 0
+      likeSum: 0,
+      likedFlg: false,
+      user_id: ""
     }
   },
   firestore() {
@@ -79,9 +84,42 @@ export default {
     }
   },
   methods: {
-    addOne: function () {
-        this.count = this.count + 1;
-    },
+    // addLikeUsr(){
+    //   // DBのcompanyコレクションにいいねを押してくれたUserを入れていく
+    //   const docRef = db.collection("company").doc()
+    //   console.log(docRef);
+      
+    //   // 配列の追加
+    //   const loginUser = firebase.auth().currentUser.uid      
+    //   docRef.update({
+    //      "like_users": firebase.firestore.FieldValue.arrayUnion(loginUser),
+    //   })
+    //   this.getLikeUserByDocumentId(docRef)
+    // },
+    // delLikeUsr(){
+    //   const docRef = db.collection("company").doc(this.user_id);
+    //   const loginUser = firebase.auth().currentUser.uid
+    //   docRef.update({
+    //       "like_users": firebase.firestore.FieldValue.arrayRemove(loginUser),
+    //     })
+    //   this.getLikeUserByDocumentId(docRef)
+    // },
+    // getLikeUserByDocumentId(docRef){
+    //   // ドキュメント取得
+    //   docRef.get().then(doc => {
+    //       if (doc.exists) {
+    //         this.company = doc.data();
+    //         this.likeSum = this.company.like_users.length
+    //         const loginUser = firebase.auth().currentUser.uid
+    //         // すでにいいねされていないか確認用フラグ
+    //         this.likedFlg = this.company.like_users.includes(loginUser)
+    //       } else {
+    //           console.log("No such document!");
+    //       }
+    //   }).catch(function(error) {
+    //       console.log("Error getting document:", error);
+    //   });
+    // },
   },
   computed: {
     userStatus() {

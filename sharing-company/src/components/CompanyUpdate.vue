@@ -64,6 +64,7 @@
 <script>
 import Header from './Header'
 import {db} from '../main'
+import firebase from 'firebase'
 
 export default {
     
@@ -110,6 +111,7 @@ export default {
         const _this = this
         const created_at = new Date().getTime()
         const companyId = String(this.$route.params.id) 
+        const user_id = firebase.auth().currentUser.uid
         db.collection('company').doc(companyId).update({
             name: this.name,
             address: this.address,
@@ -119,6 +121,7 @@ export default {
             welfare: this.welfare,
             site_url: this.site_url,
             created_at: created_at,
+            user_id: user_id,
         }).then(function (docRef) {
             console.log('Document written with ID: ', docRef)
             alert('会社情報を更新しました')
